@@ -23,5 +23,4 @@ export const auth = betterAuth({
       clientSecret: env.GITHUB_CLIENT_SECRET,
     },
   },
-  trustedOrigins: ['*'],
 })

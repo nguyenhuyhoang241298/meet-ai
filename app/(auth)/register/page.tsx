@@ -4,6 +4,11 @@ import { GalleryVerticalEnd } from 'lucide-react'
 import Link from 'next/link'
 import { RegisterForm } from './register-form'
 
+export const metadata = {
+  title: 'Đăng ký',
+  description: 'Đăng ký tài khoản mới để sử dụng Meet.ai',
+}
+
 export default function RegisterPage() {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
@@ -13,7 +18,7 @@ export default function RegisterPage() {
             <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <GalleryVerticalEnd className="size-4" />
             </div>
-            Onus
+            Meet.ai
           </div>
         </div>
         <div className="flex flex-1 items-center justify-center">

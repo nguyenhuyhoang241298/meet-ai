@@ -11,9 +11,15 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { navMain } from './configs'
+import { isActiveSideBar } from './helper'
 
 export function NavMain() {
+  const pathName = usePathname()
+  const isActive = (url: string) =>
+    isActiveSideBar({ pathname: pathName, sidebarUrl: url })
+
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
@@ -39,7 +45,11 @@ export function NavMain() {
         <SidebarMenu>
           {navMain.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton tooltip={item.title} asChild>
+              <SidebarMenuButton
+                isActive={isActive(item.url)}
+                tooltip={item.title}
+                asChild
+              >
                 <Link href={item.url}>
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>

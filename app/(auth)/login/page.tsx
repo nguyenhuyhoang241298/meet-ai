@@ -5,6 +5,11 @@ import Link from 'next/link'
 import { LoginForm } from './login-form'
 import SocialLogin from './social-login'
 
+export const metadata = {
+  title: 'Đăng nhập',
+  description: 'Đăng nhập vào tài khoản của bạn để sử dụng Meet.ai',
+}
+
 export default function LoginPage() {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
@@ -14,7 +19,7 @@ export default function LoginPage() {
             <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <GalleryVerticalEnd className="size-4" />
             </div>
-            Onus
+            Meet.ai
           </div>
         </div>
         <div className="flex flex-1 items-center justify-center">
