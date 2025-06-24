@@ -1,11 +1,7 @@
-import { Button } from "@/components/ui/button";
+import { redirect } from 'next/navigation'
 
-const Page = () => {
-  return (
-    <div>
-      <Button>Hello world</Button>
-    </div>
-  );
-};
+const Page = async () => {
+  redirect('/dashboard')
+}
 
-export default Page;
+export default Page
