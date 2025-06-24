@@ -17,9 +17,14 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
+import { usePathname } from 'next/navigation'
 import { documents } from './configs'
+import { isActiveSideBar } from './helper'
 
 export function NavDocuments() {
+  const pathName = usePathname()
+  const isActive = (url: string) =>
+    isActiveSideBar({ pathname: pathName, sidebarUrl: url })
   const { isMobile } = useSidebar()
 
   return (
@@ -27,11 +32,11 @@ export function NavDocuments() {
       <SidebarGroupLabel>Documents</SidebarGroupLabel>
       <SidebarMenu>
         {documents.map((item) => (
-          <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton asChild>
+          <SidebarMenuItem key={item.title}>
+            <SidebarMenuButton isActive={isActive(item.url)} asChild>
               <a href={item.url}>
                 <item.icon />
-                <span>{item.name}</span>
+                <span>{item.title}</span>
               </a>
             </SidebarMenuButton>
             <DropdownMenu>

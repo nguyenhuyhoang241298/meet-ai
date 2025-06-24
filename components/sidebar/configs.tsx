@@ -1,5 +1,5 @@
 import {
-  BarChartIcon,
+  Bot,
   CameraIcon,
   ClipboardListIcon,
   DatabaseIcon,
@@ -9,10 +9,11 @@ import {
   FolderIcon,
   HelpCircleIcon,
   LayoutDashboardIcon,
-  ListIcon,
   SearchIcon,
   SettingsIcon,
+  Star,
   UsersIcon,
+  Video,
 } from 'lucide-react'
 
 export const mockUser = {
@@ -24,18 +25,18 @@ export const mockUser = {
 export const navMain = [
   {
     title: 'Dashboard',
-    url: '#',
+    url: '/dashboard',
     icon: LayoutDashboardIcon,
   },
   {
-    title: 'Lifecycle',
-    url: '#',
-    icon: ListIcon,
+    title: 'Meetings',
+    url: '/meetings',
+    icon: Video,
   },
   {
-    title: 'Analytics',
-    url: '#',
-    icon: BarChartIcon,
+    title: 'Agents',
+    url: '/agents',
+    icon: Bot,
   },
   {
     title: 'Projects',
@@ -114,22 +115,34 @@ export const navSecondary = [
     url: '#',
     icon: SearchIcon,
   },
+  {
+    title: 'Upgrade',
+    url: '/upgrade',
+    icon: Star,
+  },
 ]
 
 export const documents = [
   {
-    name: 'Data Library',
+    title: 'Data Library',
     url: '#',
     icon: DatabaseIcon,
   },
   {
-    name: 'Reports',
+    title: 'Reports',
     url: '#',
     icon: ClipboardListIcon,
   },
   {
-    name: 'Word Assistant',
+    title: 'Word Assistant',
     url: '#',
     icon: FileIcon,
   },
+]
+
+export const allSidebarItems = [
+  ...navMain,
+  ...navClouds,
+  ...navSecondary,
+  ...documents,
 ]
