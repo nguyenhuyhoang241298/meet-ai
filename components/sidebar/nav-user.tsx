@@ -26,7 +26,7 @@ import {
 } from '@/components/ui/sidebar'
 import { signOut, useSession } from '@/lib/auth/auth-client'
 import { useRouter } from 'next/navigation'
-import { mockUser } from './configs'
+import GeneratedAvatar from '../ui/generated-avatar'
 
 export function NavUser() {
   const router = useRouter()
@@ -42,10 +42,18 @@ export function NavUser() {
               size="lg"
               className="data-[state=open]:bg-sidebar-accent cursor-pointer data-[state=open]:text-sidebar-accent-foreground"
             >
-              <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={mockUser.avatar} alt={'avatar'} />
-                <AvatarFallback className="rounded-lg">Onus</AvatarFallback>
-              </Avatar>
+              {session.data?.user.image ? (
+                <Avatar className="h-8 w-8">
+                  <AvatarImage src={session.data?.user.image} alt={'avatar'} />
+                  <AvatarFallback className="rounded-lg">Ava</AvatarFallback>
+                </Avatar>
+              ) : (
+                <GeneratedAvatar
+                  seed={(session.data?.user.name as string) ?? ''}
+                  variant="initials"
+                  className="h-8 w-8"
+                />
+              )}
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">
                   {session.data?.user.name}
@@ -65,10 +73,21 @@ export function NavUser() {
           >
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={mockUser.avatar} alt={'avatar'} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                </Avatar>
+                {session.data?.user.image ? (
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage
+                      src={session.data?.user.image}
+                      alt={'avatar'}
+                    />
+                    <AvatarFallback className="rounded-lg">Ava</AvatarFallback>
+                  </Avatar>
+                ) : (
+                  <GeneratedAvatar
+                    seed={(session.data?.user.name as string) ?? ''}
+                    variant="initials"
+                    className="h-8 w-8"
+                  />
+                )}
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">
                     {session.data?.user.name}

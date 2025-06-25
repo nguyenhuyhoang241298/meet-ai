@@ -16,12 +16,6 @@ import {
   Video,
 } from 'lucide-react'
 
-export const mockUser = {
-  name: 'Admin',
-  email: 'admin@goonus.io',
-  avatar: '/onus_avatar.png',
-}
-
 export const navMain = [
   {
     title: 'Dashboard',
