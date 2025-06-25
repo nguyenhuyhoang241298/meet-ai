@@ -1,6 +1,6 @@
-import ReactQueryProvider from '@/components/providers/react-query-provider'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
+import { TRPCReactProvider } from '@/trpc/client'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
@@ -30,7 +30,7 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ReactQueryProvider>
+        <TRPCReactProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
@@ -40,7 +40,7 @@ export default async function RootLayout({
             {children}
             <Toaster />
           </ThemeProvider>
-        </ReactQueryProvider>
+        </TRPCReactProvider>
       </body>
     </html>
   )
