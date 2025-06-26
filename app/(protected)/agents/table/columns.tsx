@@ -51,7 +51,7 @@ export const columns: ColumnDef<AgentGetOne>[] = [
   {
     accessorKey: 'meeting',
     header: () => <div>Meetings</div>,
-    cell: ({ row }) => {
+    cell: () => {
       return (
         <div className="font-medium flex gap-2 items-center">
           <Video className="size-4 text-green-500" /> <span>5 meetings</span>
