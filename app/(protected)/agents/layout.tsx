@@ -2,7 +2,7 @@ import { getQueryClient, trpc } from '@/trpc/server'
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import React, { Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
-import { AgentError, AgentLoading } from './page'
+import { AgentError, AgentLoading } from './actions-state'
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   const queryClient = getQueryClient()
