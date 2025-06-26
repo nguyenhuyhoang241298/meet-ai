@@ -12,6 +12,7 @@ import {
 import { usePathname } from 'next/navigation'
 import { navSecondary } from './configs'
 import { isActiveSideBar } from './helper'
+import Search from './search'
 
 export function NavSecondary({
   ...props
@@ -34,6 +35,7 @@ export function NavSecondary({
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
+          <Search />
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

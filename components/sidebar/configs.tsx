@@ -9,7 +9,6 @@ import {
   FolderIcon,
   HelpCircleIcon,
   LayoutDashboardIcon,
-  SearchIcon,
   SettingsIcon,
   Star,
   UsersIcon,
@@ -103,11 +102,6 @@ export const navSecondary = [
     title: 'Get Help',
     url: '#',
     icon: HelpCircleIcon,
-  },
-  {
-    title: 'Search',
-    url: '#',
-    icon: SearchIcon,
   },
   {
     title: 'Upgrade',
