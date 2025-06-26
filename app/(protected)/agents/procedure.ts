@@ -3,7 +3,7 @@ import { agents } from '@/db/schema'
 import { createTRPCRouter, protectedProcedure } from '@/trpc/init'
 import { eq } from 'drizzle-orm'
 import { z } from 'zod'
-import { agentInsertSchema } from './schema'
+import { agentInsertSchema, agentUpdateSchema } from './schema'
 
 export const agentsRouter = createTRPCRouter({
   getOne: protectedProcedure
@@ -30,5 +30,21 @@ export const agentsRouter = createTRPCRouter({
         .returning()
 
       return newAgent
+    }),
+
+  update: protectedProcedure
+    .input(agentUpdateSchema)
+    .mutation(async ({ input }) => {
+      const [editAgent] = await db
+        .update(agents)
+        .set({
+          name: input.name,
+          instructions: input.instructions,
+          updatedAt: new Date(),
+        })
+        .where(eq(agents.id, input.id))
+        .returning()
+
+      return editAgent
     }),
 })
