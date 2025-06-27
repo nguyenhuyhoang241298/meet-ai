@@ -25,7 +25,6 @@ import DeleteAgentDialog from '../dialog/delete-agent-dialog'
 import UpdateAgentDialog from '../dialog/update-agent-dialog'
 import { AgentGetOne } from '../type'
 import { columns } from './columns'
-import Header from './header'
 import Pagination from './pagination'
 
 type DataTableProps = {
@@ -64,8 +63,6 @@ export function DataTable({ data }: DataTableProps) {
     <div className="w-full">
       <UpdateAgentDialog />
       <DeleteAgentDialog />
-
-      <Header table={table} />
 
       <div className="rounded-md border">
         <Table>
